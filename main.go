@@ -38,5 +38,9 @@ func main() {
 	// 4.4 Write recursive binary search
 	target := 12
 	slc2 := []int{6, 7, 8, 9, 10, 11, 12}
-	fmt.Printf("The target value %d is at position %d in array %d", target, RecursiveBinarySearch(slc2, 0, len(slc2)-1, target), slc2)
+	fmt.Printf("The target value %d is at position %d in array %d\n", target, RecursiveBinarySearch(slc2, 0, len(slc2)-1, target), slc2)
+
+	// 4. Quicksort
+	slc3 := []int{5,1,3,2,6,4,11,23,12,14,10,9}
+	fmt.Printf("Performing Quicksort on %d results in: %d",slc3, QuickSort(slc3))
 }
