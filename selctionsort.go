@@ -5,7 +5,7 @@ func selectionSort(unsortedSlc []int) []int {
 	var min int
 	sortedSlc := []int{}
 	for i := 0; i < len(unsortedSlc); i++ {
-	//for _, value := range unsortedSlc {
+		//for _, value := range unsortedSlc {
 		min = 999999999
 		minIndex := 0
 		for j, v := range unsortedSlc {

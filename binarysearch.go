@@ -8,7 +8,7 @@ func binarySearch(slc []int, target int) *int {
 	for slc[mid] != target {
 		if slc[mid] == target {
 			return &mid
-		} else if high - low < 1 {
+		} else if high-low < 1 {
 			return nil
 		} else if slc[mid] > target {
 			high = mid - 1
