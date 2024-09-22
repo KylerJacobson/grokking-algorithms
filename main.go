@@ -13,4 +13,7 @@ func main() {
 	} else {
 		fmt.Println("Value is not in the array")
 	}
+
+	sorterArr := selectionSort([]int{1,4,2,9,10,5})
+	fmt.Println(sorterArr)
 }

@@ -1,5 +1,6 @@
 package main
 
+// Chapter 1
 func binarySearch(slc []int, target int) *int {
 	low := 0
 	high := len(slc) - 1
