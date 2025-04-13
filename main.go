@@ -2,45 +2,26 @@ package main
 
 import (
 	"fmt"
+
+	"github.com/KylerJacobson/grokking-algorithms/search"
+	"github.com/KylerJacobson/grokking-algorithms/sort"
 )
 
 func main() {
 	// ######################################### Chapter 1 #########################################
 	testSlice := []int{1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12}
-	pos := binarySearch(testSlice, 12)
-
-	if pos != nil {
-		fmt.Printf("Found value at position %d\n", *pos)
+	index, ok := search.BinarySearch(testSlice, 100)
+	if !ok {
+		fmt.Println("Value is not in the slice")
 	} else {
-		fmt.Println("Value is not in the array")
+		fmt.Printf("Value is at position %d\n", index)
 	}
 
 	// ######################################### Chapter 2 #########################################
-	sorterArr := selectionSort([]int{1, 4, 2, 9, 10, 5})
+	needsSorted := []int{1, 4, 2, 9, 10, 5}
+	sorterArr := sort.SelectionSort(needsSorted)
+	sort.SelectionSortInPlace(needsSorted)
+	fmt.Println(needsSorted)
 	fmt.Println(sorterArr)
 
-	// ######################################### Chapter 3 #########################################
-	factorialArg := 5
-	fmt.Printf("Factorial %d is: %d\n", factorialArg, RecursiveFactorial(factorialArg))
-
-	// ######################################### Chapter 4 #########################################
-
-	// 4.1 Write a function to recursively add an array
-	slc := []int{1, 2, 3, 4, 5, 6}
-	fmt.Printf("Array Sum for array %d is: %d\n", slc, RecursiveAdd(slc))
-
-	// 4.2 Write a function to recursively count the elements in an array
-	fmt.Printf("Array len for array %d is: %d\n", slc, RecursiveLen(slc))
-
-	// 4.3 Write a function to return the maximum number in a list
-	fmt.Printf("The largest value in array %d is: %d\n", slc, RecursiveMax(slc))
-
-	// 4.4 Write recursive binary search
-	target := 12
-	slc2 := []int{6, 7, 8, 9, 10, 11, 12}
-	fmt.Printf("The target value %d is at position %d in array %d\n", target, RecursiveBinarySearch(slc2, 0, len(slc2)-1, target), slc2)
-
-	// 4. Quicksort
-	slc3 := []int{5,1,3,2,6,4,11,23,12,14,10,9}
-	fmt.Printf("Performing Quicksort on %d results in: %d",slc3, QuickSort(slc3))
 }
