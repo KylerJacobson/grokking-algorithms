@@ -2,6 +2,7 @@ package recursion
 
 import (
 	"fmt"
+	"math/rand/v2"
 )
 
 func Factorial(num int) (int, error) {
@@ -79,4 +80,40 @@ func BinarySearch(values []int, target int) (int, error) {
 	}
 
 	return index, err
+}
+
+func QuickSort(values []int) []int {
+
+	// base case
+	if len(values) == 0 || len(values) == 1 {
+		return values
+	}
+
+	// pick a random pivot
+	pivot := rand.IntN(len(values) - 1)
+
+	// partition the arrays
+
+	leftArr := []int{}
+	rightArr := []int{}
+
+	pivotValue := values[pivot]
+	for i, value := range values {
+		if i == pivot {
+			continue
+		}
+		if value < pivotValue {
+			leftArr = append(leftArr, value)
+		} else {
+			rightArr = append(rightArr, value)
+		}
+	}
+
+	leftResult := QuickSort(leftArr)
+	rightResult := QuickSort(rightArr)
+
+	result := append(leftResult, values[pivot])
+
+	result = append(result, rightResult...)
+	return result
 }
